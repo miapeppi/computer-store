@@ -1,0 +1,116 @@
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header a {
+  color: #ffffff;
+}
+
+header a:hover {
+  color: #d25f9b;
+}
+
+header a:link {
+  text-decoration: none;
+}
+
+@media (min-width: 0px) {
+  header {
+    background-image: url("./images/small-bg.jpg");
+    background-size: 100%;
+  }
+  header h1 {
+    padding-top: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    padding-top: 10rem;
+    background-image: url("./images/large-bg.jpg");
+    background-size: 100%;
+  }
+}
+
+.cards .card {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.cards .card .card-footer {
+  background-color: #ffffff;
+  padding-bottom: 1rem;
+}
+
+.cards .card .text-right {
+  float: right;
+}
+
+.cards .card .text-middle {
+  text-align: center;
+}
+
+.cards .card img {
+  width: 70%;
+  border-radius: 0.5rem;
+}
+
+.cards .card button {
+  background-color: #4f1f54;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.cards .card button:hover {
+  background-color: #d25f9b;
+  color: #4f1f54;
+}
+
+.cards .card h3,
+.cards .card h4,
+.cards .card h5 {
+  color: #4f1f54;
+  font-weight: 700;
+}
+
+.cards .card select {
+  margin-bottom: 1rem;
+}
+
+.cards .card #loanRow {
+  display: none;
+}
+
+.cards .card #repayBtn {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .cards {
+    margin: 3rem;
+  }
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+/*# sourceMappingURL=styles.css.map */

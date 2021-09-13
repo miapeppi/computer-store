@@ -1,0 +1,10 @@
+@import "./variables";
+@import "./header";
+@import "./cards";
+
+body {
+  background-color: $primary-color;
+  color: $secondary-color;
+  box-sizing: border-box;
+  font-family: $roboto-mono;
+}

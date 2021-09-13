@@ -1,0 +1,53 @@
+.cards {
+  .card {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: $secondary-color;
+    color: $primary-color;
+    .card-footer {
+      background-color: $secondary-color;
+      padding-bottom: 1rem;
+    }
+    .text-right {
+      float: right;
+    }
+    .text-middle {
+      text-align: center;
+    }
+    img {
+      width: 70%;
+      border-radius: 0.5rem;
+    }
+    button {
+      background-color: $highlight-color;
+      color: $secondary-color;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.8rem;
+      margin-bottom: 0.5rem;
+      &:hover {
+        background-color: $action-color;
+        color: $highlight-color;
+      }
+    }
+    h3,
+    h4,
+    h5 {
+      color: $highlight-color;
+      font-weight: 700;
+    }
+    select {
+      margin-bottom: 1rem;
+    }
+    #loanRow {
+      display: none;
+    }
+    #repayBtn {
+      display: none;
+    }
+  }
+  // 768px window width and more
+  @include md {
+    margin: 3rem;
+  }
+}

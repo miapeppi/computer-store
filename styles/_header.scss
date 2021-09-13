@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // Arrow button in the header
+  a {
+    color: $secondary-color;
+    &:hover {
+      color: $action-color;
+    }
+    &:link {
+      text-decoration: none;
+    }
+  }
+  // 767px window width and smaller
+  @include sm {
+    background-image: url("./images/small-bg.jpg");
+    background-size: 100%;
+    h1 {
+      padding-top: 1rem;
+    }
+  }
+  // 768px window width and more
+  @include md {
+    padding-top: 10rem;
+    background-image: url("./images/large-bg.jpg");
+    background-size: 100%;
+  }
+}

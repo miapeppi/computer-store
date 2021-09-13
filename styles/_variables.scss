@@ -1,0 +1,24 @@
+// Colors
+$primary-color: #000000;
+$secondary-color: #ffffff;
+$highlight-color: #4f1f54;
+$action-color: #d25f9b;
+$roboto-mono: "Roboto Mono", monospace;
+
+// Breakpoints
+$screen-sm-min: 0px;
+$screen-md-min: 768px;
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
