@@ -102,10 +102,12 @@ const handleGetLoan = () => {
             alert("Sorry, but you can't have loan that big.")
         } else {
             loan += parseInt(loanAmount);
+            balance += parseInt(loanAmount);
         }
     }
     // Updating UI value
     elLoan.innerText = loan + " €";
+    elBalance.innerText = balance + " €";
     viewLoan();
 }
 
@@ -168,17 +170,14 @@ const handleBuyComputer = () => {
     // Checking if you have already bought a computer and haven't paid your loan yet
     if (boughtComputerWithLoan && loan > 0) {
         alert("I'm sorry, but you have to pay your old loan before buying new computer.")
-    // Checking if you have enough balance to buy a computer and you don't have any loan yet
-    } else if (selectedComputer.price <= balance && loan === 0){
-        balance -= (selectedComputer.price - loan)
+    // Checking if you have enough balance to buy a computer
+    } else if (selectedComputer.price <= balance){
+        balance -= selectedComputer.price
         alert("Thank you from you purchase! You have a new " + selectedComputer.title + " computer.")
         elBalance.innerText = balance + " €";
-    // Checking if you have enough balance and loan to buy the selected computer
-    } else if(selectedComputer.price <= balance + loan) {
-        balance -= (selectedComputer.price - loan)
-        alert("Thank you from you purchase! You have a new " + selectedComputer.title + " computer.")
-        boughtComputerWithLoan = true;
-        elBalance.innerText = balance + " €";
+        if(loan > 0) {
+            boughtComputerWithLoan = true;
+        }
     } else {
         alert("I'm sorry, but you don't have enough money to buy this computer.")
     }
