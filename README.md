@@ -1,6 +1,6 @@
 # The Computer Store
 
-Dynamic webpage built with Vanilla JavaScript, HTML and Sass. You can find the testable application here: https://miapeppi.github.io/computer-store/.
+Dynamic webpage built with Vanilla JavaScript, HTML and CSS. Bootstrap and Sass was also used. You can find the testable application here: https://miapeppi.github.io/computer-store/.
 
 Fourth weekly assignment of Experis Academy.
 
