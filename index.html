@@ -39,7 +39,7 @@
               <p class="card-text" id="loanRow">Outstanding loan<span id="loan" class="text-right">0 €</span></p>
             </div>
             <div class="card-footer border-0 d-flex flex-column">
-              <button id="loanBtn" class="mt-auto">Get a Loan</button>
+              <button id="loanBtn" class="mt-auto" onclick="getLoan()">Get a Loan</button>
             </div>
           </div>
         </div>
@@ -51,9 +51,9 @@
               <p class="card-text">Pay<span id="pay" class="text-right">0 €</span></p>
             </div>
             <div class="card-footer border-0 d-flex flex-column">
-              <button id="bankBtn" class="mt-auto">Bank</button>
-              <button id="workBtn" class="mt-auto">Work</button>
-              <button id="repayBtn" class="mt-auto">Repay Loan</button>
+              <button id="bankBtn" class="mt-auto" onclick="getPaid()">Bank</button>
+              <button id="workBtn" class="mt-auto" onclick="doWork()">Work</button>
+              <button id="repayBtn" class="mt-auto" onclick="repayLoan()">Repay Loan</button>
             </div>
           </div>
         </div>
@@ -89,13 +89,13 @@
                   <h3 class="card-title text-middle" id="computerPrice"></h3>
                 </div>
                 <div class="card-footer border-0 d-flex flex-column">
-                  <button id="buyBtn" class="mt-auto">BUY NOW</button>
+                  <button id="buyBtn" class="mt-auto" onclick="buyComputer()">BUY NOW</button>
                 </div>
               </div>
               <!--Image-->
               <div class="col-md-4">
                 <div class="card-body align-items-center d-flex justify-content-center">
-                  <img id="computerImg" alt="Image of the selected laptop" >
+                  <img id="computerImg" alt="Image of the selected laptop" onerror="imageNotFound(event)">
                 </div>
               </div>
             </div>

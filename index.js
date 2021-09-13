@@ -40,20 +40,6 @@ async function fetchComputers() {
 }
 
 /*
-View and hide Outstanding loan amount and repay loan button if loan value is 0
-*/
-function viewLoan() {
-    if (loan > 0) {
-        elLoanRow.style.display = "block";
-        elRepayBtn.style.display = "block";
-    } else {
-        elLoanRow.style.display = "none";
-        elRepayBtn.style.display = "none";
-        boughtComputerWithLoan = false;
-    }
-}
-
-/*
 Adding computers to the dropdown selector
 */
 const getComputers = (computers) => {
@@ -89,17 +75,42 @@ const handleComputerSelectionChange = () => {
 }
 
 /*
+Image not found
+*/
+function imageNotFound(event) {
+    const source = event.srcElement;
+    source.src = "./styles/images/error-img.jpg"
+}
+
+/*
+View and hide Outstanding loan amount and repay loan button if loan value is 0
+*/
+function viewLoan() {
+    if (loan > 0) {
+        elLoanRow.style.display = "block";
+        elRepayBtn.style.display = "block";
+    } else {
+        elLoanRow.style.display = "none";
+        elRepayBtn.style.display = "none";
+        boughtComputerWithLoan = false;
+    }
+}
+
+/*
 Getting loan when "Get a Loan" button is clicked
 */
-const handleGetLoan = () => {
+function getLoan() {
     // Checking if you already have a loan
     if(loan > 0) {
         alert("You already have a loan, you should pay that before getting a new one.")
     } else {
         const loanAmount = prompt("Please enter the amount of loan you would like to have 💰: ")
         // Checking if the asked loan amount is not bigger that you balance times two
-        if(loanAmount > balance * 2) {
+        if(isNaN(loanAmount) || loanAmount === null) {
+            loanAmount = 0;
+        } else if(loanAmount > balance * 2) {
             alert("Sorry, but you can't have loan that big.")
+        
         } else {
             loan += parseInt(loanAmount);
             balance += parseInt(loanAmount);
@@ -114,7 +125,7 @@ const handleGetLoan = () => {
 /*
 Move pay balance to the bank and if you have loan, handles the loan payment also
 */
-const handleGetPaid = () => {
+function getPaid () {
     // Checks if you have a loan
     if(loan > 0) {
         // Checks if your loan is bigger than the 10% loan payment
@@ -139,7 +150,7 @@ const handleGetPaid = () => {
 /*
 Add 100 € to your pay balance when "Work" button is clicked
 */
-const handleDoWork = () => {
+function doWork() {
     pay += 100
     // Updating the UI value
     elPay.innerText = pay + " €";
@@ -148,7 +159,7 @@ const handleDoWork = () => {
 /*
 Repays your loan with the pay balance when "Repay Loan" button is clicked
 */
-const handleRepayLoan = () => {
+function repayLoan() {
     // Checks if the loan amount is bigger than your pay balance
     if(loan >= pay) {
         loan -=pay;
@@ -166,7 +177,7 @@ const handleRepayLoan = () => {
 /*
 Buy selected computer when "BUY NOW" button is clicked
 */
-const handleBuyComputer = () => {
+function buyComputer() {
     // Checking if you have already bought a computer and haven't paid your loan yet
     if (boughtComputerWithLoan && loan > 0) {
         alert("I'm sorry, but you have to pay your old loan before buying new computer.")
@@ -183,11 +194,6 @@ const handleBuyComputer = () => {
     }
 }
 
-// Event handlers
 fetchComputers();
+// Event handler
 elComputers.addEventListener("change", handleComputerSelectionChange);
-elLoanBtn.addEventListener("click", handleGetLoan);
-elBankBtn.addEventListener("click", handleGetPaid);
-elWorkBtn.addEventListener("click", handleDoWork);
-elRepayBtn.addEventListener("click", handleRepayLoan);
-elBuyBtn.addEventListener("click", handleBuyComputer);
