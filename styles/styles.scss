@@ -1,6 +1,6 @@
-@import "./variables";
-@import "./header";
-@import "./cards";
+@use "./variables" as *;
+@use "./header" as *;
+@use "./cards" as *;
 
 body {
   background-color: $primary-color;
